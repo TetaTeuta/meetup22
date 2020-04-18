@@ -19,6 +19,6 @@ functions:
     handler: handler.refreshAccessToken
     events:
       - http:
-          path: api/token
+          path: api/refresh_token
           method: get
 
