@@ -22,22 +22,15 @@ class App extends Component {
 
   updateEvents = (lat, lon, page) => {
     if (lat && lon) {
-      getEvents(lat, lon, this.state.page).then(response => this.setState({ events: response, lat, lon }));
+      getEvents(lat, lon, this.state.page).then(response => this.setState({ events: response.events, lat: response.city.lat, lon: response.city.lon }));
     }
     else if (page) {
-      getEvents(this.state.lat, this.state.lon, page).then(response => this.setState({ events: response, page }));
+      getEvents(this.state.lat, this.state.lon, page).then(response => this.setState({ events: response.events, page: page }));
     }
     else {
-      getEvents(this.state.lat, this.state.lon, this.state.page).then(response => this.setState({ events: response }));
+      getEvents(this.state.lat, this.state.lon, this.state.page).then(response => this.setState({ events: response.events }));
     }
   }
-
-  // updateNumberOfEvents = (lat, lon, page) => {
-  //   console.log('lat: ' + lat);
-  //   console.log('lon: ' + lon);
-  //   console.log('page: ' + page);
-  //   getNewListOfEvents(lat, lon, page).then(response => this.setState({ events: response.events }));
-  // }
 
   render() {
     return (

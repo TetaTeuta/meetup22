@@ -21,13 +21,15 @@ class CitySearch extends Component {
   render() {
     return (
       <div className="CitySearch">
+        <label>City:
         <input
-          type="text"
-          className="city"
-          value={this.state.query}
-          onChange={this.handleInputChanged}
-          placeholder={this.props.defaultCity}
-        />
+            type="text"
+            className="city"
+            value={this.state.query}
+            onChange={this.handleInputChanged}
+            placeholder={this.props.defaultCity}
+          />
+        </label>
 
         <ul className="suggestions">
           {this.state.suggestions.map(item =>
