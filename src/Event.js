@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Event extends Component {
   state = {
-    event: [],
+    // events: [],
     showDetails: false
   }
 
@@ -16,13 +16,13 @@ class Event extends Component {
     return (
       <div className="event">
         <div className="event__Overview">
-          <p className="event__Overview--name">{this.state.event.name}</p>
-          <p className="event__Overview--localDate">{this.state.event.local_date}</p>
+          <p className="event__Overview--name">{this.props.event.name}</p>
+          <p className="event__Overview--localDate">{this.props.event.local_date}</p>
           <button onClick={() => this.handleShowDetails()}>show details</button>
         </div>
         {showDetails &&
           <div className="event__Details">
-            <p className="event__Details--description">{this.state.event.description}</p>
+            <p className="event__Details--description">{this.props.event.description}</p>
           </div>
         }
       </div>
