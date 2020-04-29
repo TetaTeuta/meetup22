@@ -7,12 +7,7 @@ class Event extends Component {
   }
 
   handleShowDetails = () => {
-    if (this.state.showDetails === false) {
-      this.setState({ showDetails: true });
-    }
-    else {
-      this.setState({ showDetails: false });
-    }
+    this.setState({ showDetails: true });
   }
 
   render() {
@@ -23,12 +18,8 @@ class Event extends Component {
         <div className="event__Overview">
           <p className="event__Overview--name">{this.props.event.name}</p>
           <p className="event__Overview--localDate">{this.props.event.local_date} | {this.props.event.local_time}</p>
-          {showDetails &&
-            <button className="details-btn" onClick={() => this.handleShowDetails()}>hide details</button>
-          }
-          {!showDetails &&
-            <button className="details-btn" onClick={() => this.handleShowDetails()}>show details</button>
-          }        </div>
+          <button onClick={() => this.handleShowDetails()}>show details</button>
+        </div>
         {showDetails &&
           <div className="event__Details">
             <h3>About event:</h3>
