@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import * as atatus from 'atatus-spa';
+import * as atatus from 'atatus-js';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,4 +16,6 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-atatus.config('cb1063f47ae643848aaf6f0557b612c1').install();
+atatus.config('e3fb8c88ef0a41cc96d270181eebfdba').install();
+
+atatus.notify(new Error('Test Atatus Setup'));

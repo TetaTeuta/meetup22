@@ -18,7 +18,7 @@ defineFeature(feature, test => {
     });
     then('the user should see the list of upcoming events from their location', () => {
       AppWrapper.update();
-      expect(AppWrapper.find('.event')).toHaveLength(mockEvents.events.length);
+      expect(AppWrapper.find('.Event')).toHaveLength(mockEvents.events.length);
     });
   });
 
