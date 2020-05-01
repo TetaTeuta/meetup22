@@ -58,9 +58,8 @@ async function getEvents(lat, lon, page) {
     }
 
     const result = await axios.get(url);
-    console.log(result.data);
-    const events = result.data;
-    if (result.data.length) { // Check if the events exist
+    const events = result.data.events;
+    if (events.length) { // Check if the events exist
       localStorage.setItem('lastEvents', JSON.stringify(events));
     }
     return events;
