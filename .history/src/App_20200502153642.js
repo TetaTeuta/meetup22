@@ -18,8 +18,7 @@ class App extends Component {
     defaultCity: '',
     // numberOfEvents: '',
     lat: null,
-    lon: null,
-    warningText: ''
+    lon: null
   }
 
   updateEvents = (lat, lon, page) => {

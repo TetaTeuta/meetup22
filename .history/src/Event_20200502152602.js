@@ -21,6 +21,7 @@ class Event extends Component {
 
     return (
       <div className="event">
+        <OfflineAlert text={this.state.infoText} />
         <div className="event__Overview">
           <p className="event__Overview--name">{this.props.event.name}</p>
           <p className="event__Overview--localDate">{this.props.event.local_date} | {this.props.event.local_time}</p>

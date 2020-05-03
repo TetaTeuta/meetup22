@@ -17,6 +17,7 @@ class CitySearch extends Component {
     } else {
       this.setState({ warningText: '' })
     }
+
     getSuggestions(value).then(suggestions => {
       this.setState({ suggestions });
 
