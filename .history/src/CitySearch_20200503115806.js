@@ -6,18 +6,17 @@ class CitySearch extends Component {
   state = {
     query: '',
     suggestions: [],
-    infoText: '',
-    warningText: ''
+    // warningText: ''
   }
 
   handleInputChanged = (event) => {
     const value = event.target.value;
     this.setState({ query: value });
-    // if (!navigator.onLine) {
-    //   this.setState({ warningText: 'No Network Connection! Event list loaded from last session.' });
-    // } else {
-    //   this.setState({ warningText: '' })
-    // }
+    if (!navigator.onLine) {
+      this.setState({ warningText: 'No Network Connection! Event list loaded from last session.' });
+    } else {
+      this.setState({ warningText: '' })
+    }
     getSuggestions(value).then(suggestions => {
       this.setState({ suggestions });
 
