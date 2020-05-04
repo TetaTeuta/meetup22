@@ -6,7 +6,7 @@ import NumberOfEvents from './NumberOfEvents';
 import { getEvents } from './api';
 import { OfflineAlert } from './Alert';
 import moment from 'moment';
-import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 
 class App extends Component {
 
@@ -36,7 +36,7 @@ class App extends Component {
     }
   }
 
-  countEventsOnADate = (date) => {
+  countEventsOnDate = (date) => {
     let count = 0;
     for (let i = 0; i < this.state.events.length; i += 1) {
       if (this.state.events[i].local_date === date) {
@@ -78,15 +78,19 @@ class App extends Component {
         <CitySearch updateEvents={this.updateEvents} defaultCity={this.state.defaultCity} />
         <OfflineAlert text={this.state.offlineText} />
         <NumberOfEvents updateEvents={this.updateEvents} numberOfEvents={this.state.events.length} lat={this.state.lat} lon={this.state.lon} />
-        <ResponsiveContainer height={400}>
-          <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
-            <CartesianGrid />
-            <XAxis type="category" dataKey="date" name="date" />
-            <YAxis allowDecimals={false} type="number" dataKey="number" name="number of events" />
-            <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-            <Scatter name="A school" data={this.getData()} fill="#8884d8" />
-          </ScatterChart>
-        </ResponsiveContainer>
+        <ScatterChart
+          width={400}
+          height={400}
+          margin={{
+            top: 20, right: 20, bottom: 20, left: 20,
+          }}
+        >
+          <CartesianGrid />
+          <XAxis type="number" dataKey="x" name="stature" unit="cm" />
+          <YAxis type="number" dataKey="y" name="weight" unit="kg" />
+          <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+          <Scatter name="A school" data={data} fill="#8884d8" />
+        </ScatterChart>
         <EventList events={this.state.events} />
       </div>
     );

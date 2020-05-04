@@ -79,7 +79,10 @@ class App extends Component {
         <OfflineAlert text={this.state.offlineText} />
         <NumberOfEvents updateEvents={this.updateEvents} numberOfEvents={this.state.events.length} lat={this.state.lat} lon={this.state.lon} />
         <ResponsiveContainer height={400}>
-          <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+          <ScatterChart
+            margin={{
+              top: 20, right: 20, bottom: 20, left: 20,
+            }}>
             <CartesianGrid />
             <XAxis type="category" dataKey="date" name="date" />
             <YAxis allowDecimals={false} type="number" dataKey="number" name="number of events" />
